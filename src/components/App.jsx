@@ -1,32 +1,28 @@
-import { Form } from './Form/Form';
+import { ContactForm } from './ContactForm/ContactForm';
 
-import Section from './Section/Section';
+import Container from './Container/Container';
 
 import ContactList from './ContactList/ContactList';
 
+import { ToastContainer } from 'react-toastify';
+
 import Filter from './Filter/Filter';
 
+import 'react-toastify/dist/ReactToastify.css';
 
-
-const App = () => {
+export const App = () => {
   return (
-    <div
-      style={{
-       fontSize: 20,
-        color: '#010101',
-      }}
-    >
-      <Section title="Phonebook">
-        <Form />
-      </Section>
-      <Section title="Contacts">
+    <>
+      <Container title="Phone book">
+				<ToastContainer />
+        <ContactForm />
+      </Container>
+      <Container title="Contacts">
         <Filter />
         <ContactList />
-      </Section>
-    </div>
+      </Container>
+    </>
   );
 };
-
-export { App };
 
 
