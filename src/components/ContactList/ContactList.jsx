@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
-import { deleteContact } from 'redux/Contacts/contacts-slice';
+import { deleteContact } from 'redux/Contacts/contactsSlice';
+import { selectFilter } from 'redux/Contacts/selector';
 
 export default function ContactList() {
   const contacts = useSelector(state => state.contacts.contacts);
   const dispatch = useDispatch();
-  const filter = useSelector(state => state.contacts.filter);
+  const filter = useSelector(selectFilter);
 
   const getSearchContacts = () => {
     return contacts.filter( name =>

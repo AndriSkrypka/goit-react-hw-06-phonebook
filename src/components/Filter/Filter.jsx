@@ -1,13 +1,14 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { filterContact } from '../../redux/Contacts/contacts-slice';
+import { selectFilter } from 'redux/Contacts/selector';
+import { setFilter } from '../../redux/Contacts/filterSlice';
 
 
 export default function Filter() {
   const dispatch = useDispatch();
-  const name = useSelector(state => state.contacts.filter);
+  const filter = useSelector(selectFilter);
 
   const handlerFilter = e => {
-    dispatch(filterContact(e.target.value));
+    dispatch(setFilter(e.target.value));
   };
 
   return (
@@ -16,7 +17,7 @@ export default function Filter() {
       <input
         type="text"
         name="name"
-        value={name}
+        value={filter}
         onChange={handlerFilter}
       />
     </label>
